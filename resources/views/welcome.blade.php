@@ -1,0 +1,1 @@
+:::code language="php" source="../graph-tutorial/resources/views/welcome.blade.php" id="WelcomeSnippet":::

@@ -1,0 +1,1 @@
+:::code language="php:::code language="php" source="../graph-tutorial/resources/views/layout.blade.php" id="LayoutSnippet":::
