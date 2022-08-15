@@ -1,4 +1,6 @@
 <?php
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 namespace App\Http\Controllers;
 
@@ -10,6 +12,27 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    :::code language="php" source="../graph-tutorial/app/Http/Controllers/Controller.php" id="LoadViewDataSnippet":::
+
+    // <LoadViewDataSnippet>
+    public function loadViewData()
+    {
+        $viewData = [];
+
+        // Check for flash errors
+        if (session('error')) {
+            $viewData['error'] = session('error');
+            $viewData['errorDetail'] = session('errorDetail');
+        }
+
+        // Check for logged on user
+        if (session('userName'))
+        {
+            $viewData['userName'] = session('userName');
+            $viewData['userEmail'] = session('userEmail');
+            $viewData['userTimeZone'] = session('userTimeZone');
+        }
+
+        return $viewData;
+    }
+    // </LoadViewDataSnippet>
 }
-?>
